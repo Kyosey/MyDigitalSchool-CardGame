@@ -1,17 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CardManagerComponent } from '../card-manager/card-manager.component';
 import { CardService } from '../../core/services/card.service';
 import { DeckService } from '../../core/services/deck.service';
 import { CardModel } from '../../core/models/card.model';
 import { DeckModel } from '../../core/models/deck.model';
-import { CardListComponent } from '../card-list/card-list.component';
 
 @Component({
   selector: 'app-deck',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,FormsModule,CardListComponent],
+  imports: [CommonModule, ReactiveFormsModule,FormsModule],
   templateUrl: './deck.component.html',
   styleUrls: ['./deck.component.scss'],
 })
@@ -86,9 +84,6 @@ export class DeckComponent implements OnInit {
       console.error('Deck non trouvé');
     }
   }
-
-
-
 
   addDeck(): void {
     if (this.form.invalid) return;

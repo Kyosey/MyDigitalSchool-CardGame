@@ -30,11 +30,24 @@
         <button (click)="addCardToSelectedDeck(deck.id!)" [disabled]="!selectedCardIdToAdd" class="add-card-btn">➕ Ajouter la carte</button>
       </div>
 
+      <div *ngIf="selectedCardIdToAdd">
+        <ng-container *ngFor="let card of allCards">
+          <div *ngIf="card.id === selectedCardIdToAdd" class="card-preview">
+            <img [src]="'/assets/cards/' + card.value + '.png'"  alt="{{ card.name }}" class="card-img-preview" />
+            <p>{{ card.name }} - Valeur : {{ card.value }}</p>
+          </div>
+        </ng-container>
+      </div>
+
+      <button (click)="addCardToSelectedDeck(deck.id!)" [disabled]="!selectedCardIdToAdd" class="add-card-btn">
+        ➕ Ajouter la carte
+      </button>
+
       <li *ngFor="let card of deckCards" class="deck-card-item">
         <div class="card">
+          <img [src]="'/assets/cards/' + card.value + '.png'"  alt="{{ card.name }}" class="card-img" />
           <p><strong>{{ card.name }}</strong></p>
           <p>Valeur : {{ card.value }}</p>
-          <!-- <button (click)="removeCardFromDeck(selectedDeckId, card.id!)" class="remove-card-btn">🗑️ Supprimer du deck</button>-->
         </div>
       </li>
     </div>
