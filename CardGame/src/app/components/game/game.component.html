@@ -1,10 +1,10 @@
 <div class="deck-selection-container" *ngIf="!gameStarted && !gameOver">
-  <h2>🎴 Bienvenue dans le jeu de cartes !</h2>
+  <h2>Bienvenue dans le jeu de cartes !</h2>
   <p>Choisissez un deck pour chaque joueur afin de commencer la partie.</p>
 
   <div class="deck-forms">
     <div class="deck-form">
-      <label for="deckPlayer1">👤 Joueur 1</label>
+      <label for="deckPlayer1">Joueur 1</label>
       <select id="deckPlayer1" [(ngModel)]="selectedPlayer1DeckId">
         <option [value]="''" disabled selected>-- Choisir un deck --</option>
         <option *ngFor="let deck of decks" [value]="deck.id">{{ deck.name }}</option>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="deck-form">
-      <label for="deckPlayer2">👤 Joueur 2</label>
+      <label for="deckPlayer2">Joueur 2</label>
       <select id="deckPlayer2" [(ngModel)]="selectedPlayer2DeckId">
         <option [value]="''" disabled selected>-- Choisir un deck --</option>
         <option *ngFor="let deck of decks" [value]="deck.id">{{ deck.name }}</option>
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <button class="start-button" (click)="startGame()">🚀 Démarrer la partie</button>
+  <button class="start-button" (click)="startGame()">Jouer</button>
 </div>
 
 
@@ -29,21 +29,27 @@
 
   <div class="players">
     <div class="player">
-      <h3>Joueur 1</h3> <!--appel du joueur 1 -->
+      <h3>Joueur 1</h3>
       <div class="deck">
-        <button
-          *ngFor="let card of player1DeckCards"
-          [disabled]="player1Ready"
-          (click)="selectCard(1, card)"
+        <div
+        *ngFor="let card of player1DeckCards"
+        class="card-selectable"
+        [class.disabled]="player1Ready"
+        (click)="!player1Ready && selectCard(1, card)"
         >
-          {{ card.name }}
-        </button>
+        <img
+          [src]="'/assets/cards/' + card.value + '.png'"
+          [alt]="card.name"
+          (error)="onImageError($event)"
+        /> <br>
+        {{ card.value }}
+      </div>
       </div>
       <p *ngIf="player1Ready">✅ Prêt</p>
     </div>
 
     <div class="player">
-      <h3>Joueur 2</h3><!--appel du joueur 1 -->
+      <h3>Joueur 2</h3>
       <div class="deck">
           <div
             *ngFor="let card of player2DeckCards"
@@ -55,7 +61,8 @@
               [src]="'/assets/cards/' + card.value + '.png'"
               [alt]="card.name"
               (error)="onImageError($event)"
-            />
+            /><br>
+            {{ card.value }}
           </div>
         </div>
       </div>
