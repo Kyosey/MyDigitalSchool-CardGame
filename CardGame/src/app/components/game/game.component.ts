@@ -39,7 +39,6 @@ export class GameComponent implements OnInit {
   roundResult = '';
   gameOver = false;
   gameStarted = false;
-  roundLocked = false;
 
   constructor(private deckService: DeckService) {}
 
@@ -86,12 +85,9 @@ export class GameComponent implements OnInit {
     }
 
     if (this.player1Ready && this.player2Ready) {
-      this.roundLocked = true;
-
       setTimeout(() => {
         this.resolveRound();
-        this.roundLocked = false;
-      }, 2000);
+      }, 3000);
     }
   }
 
