@@ -1,8 +1,11 @@
+:host {
+  flex: 3;
+}
+
 .card-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-  padding: 1rem;
 }
 
 .card {
@@ -31,6 +34,7 @@
 .card-content h3 {
   margin: 0.5rem 0 0.2rem;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .card-content p {
