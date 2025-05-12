@@ -1,15 +1,23 @@
 /* Style général */
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
+:host {
+  display: flex;
+  gap: 30px;
 }
 
-.form-input {
-  display: flex;
-  gap: 10px;
-  align-items: start;
-  justify-content: center;
+.left-side {
+  flex: 1;
+}
+
+.management-form {
+  padding: 16px;
+  background-color: #151b23;
+  border: 1px solid #3d444d;
+  border-radius: 6px;
+}
+
+.card-manager-title {
+  color: white;
+  margin-bottom: 16px;
 }
 
 .loading, .error-message {
@@ -19,15 +27,17 @@ h2 {
 }
 
 .error-message {
+  flex: 3;
   color: red;
+  text-align: start;
 }
 
 /* Style du formulaire pour ajouter un deck */
 .deck-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 
   label {
     font-size: 1.1rem;
@@ -35,27 +45,26 @@ h2 {
   }
 
   input {
-    padding: 10px;
-    width: 300px;
+    background-color: #0d1117;
+    border: 1px solid #3d444d;
+    border-radius: 6px;
+    padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
+    color: #9198a1;
   }
 
   .submit-btn {
-    background-color: #007bff;
+    background-color: #238636;
+    border: #ffffff1a;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
     color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: #29903b;
     }
 
     &:disabled {
@@ -70,18 +79,21 @@ h2 {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex: 3;
 }
 
 .deck-item {
-  background-color: #f8f9fa;
+  background-color: #151b23;
   margin-bottom: 15px;
   padding: 20px;
-  border-radius: 10px;
+  border: 1px solid #3d444d;
+  border-radius: 6px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .deck-info {
   font-size: 1.1rem;
+  color: white;
   margin-bottom: 10px;
 }
 
@@ -94,7 +106,7 @@ h2 {
 .action-btn {
   padding: 8px 15px;
   font-size: 1rem;
-  background-color: #28a745;
+  background-color: #238636;
   color: white;
   border: none;
   border-radius: 5px;
@@ -102,7 +114,7 @@ h2 {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #218838;
+    background-color: #29903b;
   }
 }
 
@@ -119,7 +131,6 @@ h2 {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .add-card {
@@ -129,15 +140,16 @@ h2 {
 }
 
 .card-select {
-  padding: 8px;
+  background-color: #0d1117;
+  border: 1px solid #3d444d;
+  border-radius: 6px;
+  padding: 0.5rem;
   font-size: 1rem;
-  width: 200px;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  color: #9198a1;
 }
 
 .add-card-btn {
-  background-color: #007bff;
+  background-color: #238636;
   color: white;
   padding: 10px 20px;
   font-size: 1rem;
@@ -147,7 +159,7 @@ h2 {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #29903b;
   }
 
   &:disabled {
@@ -217,8 +229,8 @@ h2 {
 }
 
 .card-gallery {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
   overflow-x: auto;
   gap: 1rem;
   padding: 1rem 0;
@@ -239,18 +251,26 @@ h2 {
   min-width: 140px;
   flex-shrink: 0;
   scroll-snap-align: start;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #151b23;
+  border: 1px solid #3d444d;
   border-radius: 8px;
   padding: 0.8rem;
   text-align: center;
+  color: white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
+.card-name {
+  text-align: center;
+  color: #fff;
+}
+
+.card-value {
+  text-align: center;
+  color: #9198a1;
+}
+
 .card-img {
-  width: 50%;
-  max-width: 100px;
-  max-height: 100px;
   object-fit: cover;
   margin: 0 auto;
   display: block;

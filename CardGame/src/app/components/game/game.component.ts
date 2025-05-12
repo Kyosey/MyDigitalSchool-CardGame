@@ -100,12 +100,12 @@ export class GameComponent implements OnInit {
 
     if (card1.value > card2.value) {
       this.player1Score++;
-      this.roundResult = '✅ Joueur 1 gagne ce tour !';
+      this.roundResult = 'Joueur 1 gagne ce tour !';
     } else if (card2.value > card1.value) {
       this.player2Score++;
-      this.roundResult = '✅ Joueur 2 gagne ce tour !';
+      this.roundResult = 'Joueur 2 gagne ce tour !';
     } else {
-      this.roundResult = '⚖️ Égalité, aucun point.';
+      this.roundResult = 'Égalité, aucun point.';
     }
 
     // Supprimer les cartes jouées
@@ -131,11 +131,11 @@ export class GameComponent implements OnInit {
   endGame(): void {
     this.gameOver = true;
     if (this.player1Score > this.player2Score) {
-      this.roundResult = '🏆 Joueur 1 gagne la partie !';
+      this.roundResult = 'Joueur 1 gagne la partie !';
     } else if (this.player2Score > this.player1Score) {
-      this.roundResult = '🏆 Joueur 2 gagne la partie !';
+      this.roundResult = 'Joueur 2 gagne la partie !';
     } else {
-      this.roundResult = '🤝 Égalité parfaite. Aucun gagnant.';
+      this.roundResult = 'Égalité parfaite. Aucun gagnant.';
     }
   }
 

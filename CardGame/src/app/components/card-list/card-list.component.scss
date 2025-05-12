@@ -9,8 +9,8 @@
 }
 
 .card {
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #151b23;
+  border: 1px solid #3d444d;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
@@ -35,11 +35,12 @@
   margin: 0.5rem 0 0.2rem;
   font-size: 1.1rem;
   text-align: center;
+  color: #fff;
 }
 
 .card-content p {
   margin: 0;
-  color: #666;
+  color: #9198a1;
 }
 
 .card-actions {
@@ -49,8 +50,9 @@
 }
 
 .card-actions button {
-  background-color: #f0f0f0;
-  border: none;
+  background-color: #212830;
+  color: white;
+  border: 1px solid #3d444d;
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
   cursor: pointer;
@@ -58,7 +60,7 @@
 }
 
 .card-actions button:hover {
-  background-color: #ddd;
+  background-color: #262c36;
 }
 
 .empty-message {

@@ -1,11 +1,13 @@
 <div class="left-side">
-  <h2 class="card-manager-title">Gestion des cartes</h2>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <input formControlName="name" placeholder="Nom de la carte" />
-    <input type="number" formControlName="value" placeholder="Valeur de la carte" min="1" max="20"/>
-    <button type="submit">{{ isEditing ? 'Mettre à jour' : 'Créer la carte' }}</button>
-    <button type="button" *ngIf="isEditing" (click)="cancelEdit()">Annuler</button>
-  </form>
+  <div class="management-form">
+    <h2 class="card-manager-title">Gestionnaire de cartes</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input formControlName="name" placeholder="Nom de la carte" />
+      <input type="number" formControlName="value" placeholder="Valeur de la carte" min="1" max="20"/>
+      <button type="submit">{{ isEditing ? 'Mettre à jour' : 'Créer la carte' }}</button>
+      <button type="button" *ngIf="isEditing" (click)="cancelEdit()">Annuler</button>
+    </form>
+  </div>
 </div>
 
 <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
